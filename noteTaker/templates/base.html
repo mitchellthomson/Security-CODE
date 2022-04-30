@@ -6,24 +6,29 @@
     
 
     <title>{% block title %}{% endblock %}</title>
-    <!-- <link rel="stylesheet" href="/noteTaker/static/css/notes.css"> -->
+    <link href="{{ url_for('static', filename='./css/notes.css') }}" rel="stylesheet">
     </head>
     <body>
+        <div class="topnav">
+            <a class="active" href="#notes">Notes</a>
+            <a href="#weather">Weather</a>
+            <a href="#login">Login</a>
+            <a href="#signup">Signup</a>
+        </div>
         <div class="notes" id="app">
             <div class="notes__sidebar">
                 <button class="notes__add" type="button">Add New Note</button>
                 <div class="notes__list">
-                    <div class="notes__list-item">
+                    <div class="notes__list-item notes__list-item--selected">
                         <div class="notes__small-title">Lecture Notes</div>
                         <div class="notes__small-body">Nothing</div>
-                        <div class="notes__small-update">Monday 18:00</div>
+                        <div class="notes__small-updated">Monday 18:00</div>
                     </div>
                 </div>
+            </div>
             <div class="notes__preview">
                 <input class="notes__title" type="text" placeholder="Enter a title....">
                 <textarea class="notes__body">Write note here....</textarea>
-            </div>
-            
             </div>
         </div>
     </body>
