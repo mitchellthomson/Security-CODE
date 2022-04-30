@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, inital-scale=1" />
+    
+
+    <title>{% block title %}{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="/noteTaker/static/css/notes.css"> -->
+    </head>
+    <body>
+        <div class="notes" id="app">
+            <div class="notes__sidebar">
+                <button class="notes__add" type="button">Add New Note</button>
+                <div class="notes__list">
+                    <div class="notes__list-item">
+                        <div class="notes__small-title">Lecture Notes</div>
+                        <div class="notes__small-body">Nothing</div>
+                        <div class="notes__small-update">Monday 18:00</div>
+                    </div>
+                </div>
+            <div class="notes__preview">
+                <input class="notes__title" type="text" placeholder="Enter a title....">
+                <textarea class="notes__body">Write note here....</textarea>
+            </div>
+            
+            </div>
+        </div>
+    </body>
+</html>
