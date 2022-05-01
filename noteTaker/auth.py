@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db
@@ -18,10 +19,12 @@ def login():
             if check_password_hash(user.psw, psw):
                 flash('Logged in', category='success')
                 login_user(user, remember=True)
+                return redirect(url_for("views.home"))
             else:
                 flash('Incorrect password, try again!', category='error')
         else:
             flash('Email account not found', category='error')
+            
         
     return render_template("login.html")
 
