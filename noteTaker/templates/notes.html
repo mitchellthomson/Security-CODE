@@ -6,6 +6,13 @@
         <div class="notes__sidebar">
             <button class="notes__add" type="button">Add New Note</button>
             <div class="notes__list">
+                <ul class="list__notes" id="notes">
+                    {% for note in user.notes %}
+                    <li>
+                        {{note.data}}
+                    </li>
+                    {% endfor %}
+                </ul>
                 <div class="notes__list-item notes__list-item--selected">
                     <div class="notes__small-title">Lecture Notes</div>
                     <div class="notes__small-body">Nothing</div>
@@ -19,4 +26,5 @@
         </div>
     </div>
 </body>
+<script src="/noteTaker/static/js/Notes.js" type="module"></script>
 {% endblock %}
