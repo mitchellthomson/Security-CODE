@@ -1,4 +1,8 @@
-export default class Notes {
-    constructor(root, {onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete} = {})
-
+function deleteNote(noteId) {
+    fetch('delete-note', {
+        method:'POST',
+        body: JSON.stringify({ noteId: noteId})
+    }).then((_res) =>{
+        window.location.href = "/notes";
+    })
 }

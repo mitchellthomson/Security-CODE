@@ -16,4 +16,4 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique = True)
     psw = db.Column(db.String(150))
     
-    note = db.relationship("Note")
+    notes = db.relationship("Note")
