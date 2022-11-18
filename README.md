@@ -1,7 +1,9 @@
-# Code-Spring-2022
-My Webproject for code Spring 2022
+# Code-Winter-2022
+## This repo contains a Note taking Web Project and a Password Manager application
 
-A simple note taking application
+### NoteTaking
+
+A simple note taking application designed for understanding database models, security, and web development
 
 Built using flask
 
@@ -55,3 +57,7 @@ python main.py
 - :white_check_mark: no transitive dependencies
 
 ![](images/database.png)
+
+
+
+### Password Manager
