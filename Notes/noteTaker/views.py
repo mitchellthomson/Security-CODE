@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request,jsonify
 from flask_login import login_required, current_user
-from .models import Note
+from .models import Note, Edit
 from . import db
 import json
 views = Blueprint("views", __name__)
@@ -14,7 +14,7 @@ def home():
 def notes():
     if request.method == "POST":
         note=request.form.get("note")
-        new_note = Note(text=note, user_id=current_user.id)
+        new_note = Edit(text=note, user_id=current_user.id)
         db.session.add(new_note)
         db.session.commit()
     return render_template("notes.html", user = current_user)

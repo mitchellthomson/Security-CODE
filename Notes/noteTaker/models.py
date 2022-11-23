@@ -7,7 +7,7 @@ from . import db
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    text = db.Column(db.String(10000))
+    
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     is_public = db.Column(db.Boolean)
 
