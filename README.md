@@ -1,31 +1,11 @@
 # Code-Security
 ## This repo contains a React Password Manager and a Note taking Web Project
-
-## Password Manager
-
 #### How to use
+
+##### Pass Manager
 navigate to the password manager directory and inside both client and server directories run "npm install" to install dependencies needed
 
-### Project Description
- It is built using React and Node.js with MySQL as the database. The application allows users to register an account and log in to access their password vault. Users can create and manage multiple passwords, each associated with a title, username, and password. The passwords are encrypted using bcrypt and crypto before being stored in the database with 256-bit AES to encrypt and decrypt the users password data so as to not store them in plaintext into the database
-
-![](images/passwordDatabase.drawio.png)
-
-### Security checks attempting
-    Password hashing: User passwords are hashed using the bcrypt algorithm, which makes it more difficult for an attacker to obtain the plaintext password even if they manage to access the database.
-    User authentication: Users are required to log in with a username and password combination to access their stored passwords.
-    Session management: User sessions are managed using JSON Web Tokens (JWT), which are signed and encrypted to prevent tampering and ensure the integrity of session data.
-    HTTPS: The application uses HTTPS to encrypt communication between the user's browser and the server, which prevents eavesdropping and man-in-the-middle attacks.
-
-### Example of Industry Password Manager
-The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they display their threat model
-
-![](images/img-lastpass-enterprise-security-mfa-1-svg.svg)
-
-LastPass uses both encryption and hashing to secure user data. The user's master password is hashed using a one-way salted hashing algorithm before being transmitted and stored on LastPass's servers. Once stored, user data is encrypted using 256-bit AES encryption, both in transit and at rest, which ensures that the data cannot be accessed or read by anyone without the decryption key.
-
-## NoteTaking
-
+##### NoteTaking
 A simple note taking application designed for understanding database models, security, and web development
 
 Built using flask
@@ -37,7 +17,42 @@ make sure python is installed
 python main.py
 ```
 
-## SECURITY checks in place
+## Project Description
+### Pass Manager
+It is built using React and Node.js with MySQL as the database. Intended as an introduction experimental development to see how at a basic level password managers work and keep you secure, while researching as well how industry grade ones work on such a large scale as well as online. The application allows users to register an account and log in to access their password vault. Users can create and manage multiple passwords, each associated with a title, username, and password. The passwords are encrypted using crypto before being stored in the database with 256-bit AES to encrypt and decrypt the users password data so as to not store them in plaintext into the database
+
+Currently for the password manager it is just a local application so there is no user authentication meaning there is no username or password to login to the application, meaning anyone who had access to your device could easily access your stored passwords by using the application without your knowledge. Inside the database they are secured but when using the application it is essentially a list they are able to read if in person.
+
+![](images/updatedencryptionpasswordmanager.png)
+
+#### Example of Industry Password Manager
+The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they display their threat model
+
+![](images/img-lastpass-enterprise-security-mfa-1-svg.svg)
+
+LastPass uses both encryption and hashing to secure user data. The user's master password is hashed using a one-way salted hashing algorithm before being transmitted and stored on LastPass's servers. Once stored, user data is encrypted using 256-bit AES encryption, both in transit and at rest, which ensures that the data cannot be accessed or read by anyone without the decryption key.
+
+
+### NoteTaking
+A simple note taking application designed for understanding database models, security, and web development
+
+Built using flask
+
+To run all is needed is to clone this repository
+make sure python is installed
+```sh
+python main.py
+```
+
+### Threat Models
+
+#### NoteTaking
+![](images/security.png)
+
+#### PassManager
+![](images/updatedencryptionpasswordmanager.png)
+
+## SECURITY checks in place for projects
 
     Stateless cookie user authentication, using the flask_login module. HTTP Cookie based credentials only was picked for this over a local storage to help prevent session hijacking
 
@@ -46,7 +61,6 @@ python main.py
     Sql-injection is protected through use of sqlalchemy. By using Sqlalchemy quoting systems escapes special characters (ie semicolons) are escaped automatically which helps prevent sql injections
 
     Password hashing is done with sha256 method of hash. Hashing is a method to secure data in a format that is unreadable unless you have access to the key. If the database of users was comprimised the hacker would not gain access to clear text passwords and would be unable to read them as they dont have this key.
-
 
 ## Vulnerabilities
 
@@ -61,22 +75,3 @@ python main.py
     Cross-site Request Forgery(CSRF) -  a malicious agent is able to take the stored data from a registered user by imitatiating what appears to be an http request from a legit site.
 
     Man in the middle - unless deployed with https it bleed SSL token and will be vulnerable for attackers to steal the users session.
-    
-
-### Threat Model
-![](images/security.png)
-
-## DATABASE
-
-### Normalform 1
-- :white_check_mark: no compository attributes
-
-- :white_check_mark: no multi-valued attribute
-
-### Normalform 2
-- :white_check_mark: no partial dependency
-
-### Normalform 3
-- :white_check_mark: no transitive dependencies
-
-![](images/database.png)
