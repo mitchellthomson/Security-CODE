@@ -23,8 +23,6 @@ It is built using React and Node.js with MySQL as the database. Intended as an i
 
 Currently for the password manager it is just a local application so there is no user authentication meaning there is no username or password to login to the application, meaning anyone who had access to your device could easily access your stored passwords by using the application without your knowledge. Inside the database they are secured but when using the application it is essentially a list they are able to read if in person.
 
-![](images/updatedencryptionpasswordmanager.png)
-
 #### Example of Industry Password Manager
 The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they display their threat model
 
