@@ -3,18 +3,24 @@
 
 ## Password Manager
 
-The goal for password manager was to create a small proof of concept local password manager. Inputting a username and a password into it will store the username and password (with a salted hash for security) inside of a postgresql database and so they can bereturned on request of the user. Goal is to secure this as well with a main password that must be entered before a user can look at the information found in the database
+#### How to use
+navigate to the password manager directory and inside both client and server directories run "npm install" to install dependencies needed
+
+### Project Description
+This is a Password Manager written with React to allow a user to input their password for any app/website/program etc.. and then store these password for safe keeping until the user wants to access them at a later date 
+
+It is using "crypto" with 256-bit AES to encrypt and decrypt the users password data so as to not store them in plaintext in the local mysql database
 
 ![](images/passwordDatabase.drawio.png)
 
-    This was done using python,postrgesql inside a docker container
+
 
 ### Example of Industry Password Manager
-The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they show their process of security 
+The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they display their threat model
 
 ![](images/img-lastpass-enterprise-security-mfa-1-svg.svg)
 
-
+LastPass uses both encryption and hashing to secure user data. The user's master password is hashed using a one-way salted hashing algorithm before being transmitted and stored on LastPass's servers. Once stored, user data is encrypted using 256-bit AES encryption, both in transit and at rest, which ensures that the data cannot be accessed or read by anyone without the decryption key.
 
 ## NoteTaking
 
