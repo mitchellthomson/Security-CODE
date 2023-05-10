@@ -1,5 +1,20 @@
-# Code-Winter-2022
-## This repo contains a Note taking Web Project and a Password Manager application
+# Code-Security
+## This repo contains a Note taking Web Project and a React Password Manager
+
+## Password Manager
+
+The goal for password manager was to create a small proof of concept local password manager. Inputting a username and a password into it will store the username and password (with a salted hash for security) inside of a postgresql database and so they can bereturned on request of the user. Goal is to secure this as well with a main password that must be entered before a user can look at the information found in the database
+
+![](images/passwordDatabase.drawio.png)
+
+    This was done using python,postrgesql inside a docker container
+
+### Example
+The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they show their process of security 
+
+![](images/img-lastpass-enterprise-security-mfa-1-svg.svg)
+
+
 
 ## NoteTaking
 
@@ -57,18 +72,3 @@ python main.py
 - :white_check_mark: no transitive dependencies
 
 ![](images/database.png)
-
-
-
-## Password Manager
-
-The goal for password manager was to create a small proof of concept local password manager. Inputting a username and a password into it will store the username and password (with a salted hash for security) inside of a postgresql database and so they can bereturned on request of the user. Goal is to secure this as well with a main password that must be entered before a user can look at the information found in the database
-
-![](images/passwordDatabase.drawio.png)
-
-    This was done using python,postrgesql inside a docker container
-
-### Example
-The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they show their process of security 
-
-![](images/img-lastpass-enterprise-security-mfa-1-svg.svg)
