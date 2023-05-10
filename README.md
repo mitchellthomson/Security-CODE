@@ -1,5 +1,5 @@
 # Code-Security
-## This repo contains a Note taking Web Project and a React Password Manager
+## This repo contains a React Password Manager and a Note taking Web Project
 
 ## Password Manager
 
@@ -9,7 +9,7 @@ The goal for password manager was to create a small proof of concept local passw
 
     This was done using python,postrgesql inside a docker container
 
-### Example
+### Example of Industry Password Manager
 The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they show their process of security 
 
 ![](images/img-lastpass-enterprise-security-mfa-1-svg.svg)
