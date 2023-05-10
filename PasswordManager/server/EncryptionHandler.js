@@ -1,23 +1,34 @@
 const crypto = require ('crypto');
 const secret ='cFDj9XpH3EgmZb5RyqLxhnvKuVtWo6wa' 
-const encrypt = () => (password) =>{
+
+const encrypt = (password) => {
     const iv = Buffer.from(crypto.randomBytes(16));
-    const cipher = crypto.createCipheriv(
-        'aes-256-ctr',Buffer.from(secret),iv);
+    const cipher = crypto.createCipheriv("aes-256-ctr", Buffer.from(secret), iv);
 
-    const encryptPass = Buffer.concat([cipher.update(password),cipher.final()]);
+    const encryptedPassword = Buffer.concat([
+        cipher.update(password),
+        cipher.final(),
+    ]);
 
-    return {iv:iv.toString('hex'), password: encryptPass.toString('hex')};
+    return {
+        iv: iv.toString("hex"),
+        password: encryptedPassword.toString("hex"),
+    };
 };
 
-const decrypt = () => (encryptPass) => {
-    const decipher = crypto.createDecipheriv('aes-256-ctr',Buffer.from(secret),
-    Buffer.from(encryptPass.iv, "hex")
-    );
+const decrypt = (encryption) => {
+    const decipher = crypto.createDecipheriv(
+    "aes-256-ctr",
+    Buffer.from(secret),
+    Buffer.from(encryption.iv, "hex")
+);
 
-    const decryptedPass = Buffer.concat([decipher.update(Buffer.from(encryptPass.password, "hex")),decipher.final()]);
+const decryptedPassword = Buffer.concat([
+    decipher.update(Buffer.from(encryption.password, "hex")),
+    decipher.final(),
+    ]);
 
-    return decryptedPass.toString();
+    return decryptedPassword.toString();
 };
 
-module.exports = {encrypt, decrypt};
+module.exports = { encrypt, decrypt };

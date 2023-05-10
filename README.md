@@ -7,13 +7,15 @@
 navigate to the password manager directory and inside both client and server directories run "npm install" to install dependencies needed
 
 ### Project Description
-This is a Password Manager written with React to allow a user to input their password for any app/website/program etc.. and then store these password for safe keeping until the user wants to access them at a later date 
-
-It is using "crypto" with 256-bit AES to encrypt and decrypt the users password data so as to not store them in plaintext in the local mysql database
+ It is built using React and Node.js with MySQL as the database. The application allows users to register an account and log in to access their password vault. Users can create and manage multiple passwords, each associated with a title, username, and password. The passwords are encrypted using bcrypt and crypto before being stored in the database with 256-bit AES to encrypt and decrypt the users password data so as to not store them in plaintext into the database
 
 ![](images/passwordDatabase.drawio.png)
 
-
+### Security checks attempting
+    Password hashing: User passwords are hashed using the bcrypt algorithm, which makes it more difficult for an attacker to obtain the plaintext password even if they manage to access the database.
+    User authentication: Users are required to log in with a username and password combination to access their stored passwords.
+    Session management: User sessions are managed using JSON Web Tokens (JWT), which are signed and encrypted to prevent tampering and ensure the integrity of session data.
+    HTTPS: The application uses HTTPS to encrypt communication between the user's browser and the server, which prevents eavesdropping and man-in-the-middle attacks.
 
 ### Example of Industry Password Manager
 The idea for the project came from browsing how marketed password managers operate, my greatest example I used was from LastPass here is how they display their threat model
